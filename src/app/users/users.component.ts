@@ -39,7 +39,6 @@ export class UsersComponent {
           this.router.navigate(['users'])
         } else {
             this.dataService.addUser(this.user).subscribe(user => {
-              console.log(user);
               this.users.unshift(user);
               this.flashMessagesService.show('New user added to register', {
                 cssClass: 'alert-success',
