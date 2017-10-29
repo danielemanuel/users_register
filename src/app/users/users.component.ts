@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {  FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./users.component.css']
 })
 
-export class UsersComponent implements OnInit {
+export class UsersComponent {
   users:any[];
   user = {
       id:'',
@@ -49,10 +49,4 @@ export class UsersComponent implements OnInit {
           });
         }     
     }
-    
-  ngOnInit() {
-      
-  }
-
-
 }

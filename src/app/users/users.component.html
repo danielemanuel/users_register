@@ -66,7 +66,7 @@
 <hr>
 <div class="dropdown show">
         <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+          Search Users
         </a>
       
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">            
@@ -75,17 +75,13 @@
       </div>
 <br>
 <hr>
-<div *ngFor="let user of users">
+<div *ngFor="let user of users | FilterPipe: queryString">
     
         <div class="well">
             <ul class="list-group">
                 <li class="list-group-item">Name: {{ user.name }}</li>
                 <li class="list-group-item">Email: {{ user.email }}</li>
                 <li class="list-group-item">Phone: {{ user.phone }}</li>
-            </ul>
-            <br>
-            <button class="btn btn-primary btn-sm" (click)="onEditClick(user)">Edit</button>
-            <button class="btn btn-danger btn-sm" (click)="onDeleteClick(user.id)">Delete</button>
-            <br><br>
+            </ul><br>            
         </div>
     </div>
