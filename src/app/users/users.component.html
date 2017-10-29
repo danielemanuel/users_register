@@ -33,30 +33,33 @@
                 name="email"
                 pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                 required>
-                <div *ngIf="userEmail.errors?.required && userEmail.touched" class="invalid-feedback">
-                  Email is required
+                <div class="alert alert-danger"
+                    *ngIf="userEmail.errors?.required && userEmail.touched">
+                    Email is required
                 </div>
-                <div *ngIf="userEmail.errors?.pattern && userEmail.touched" class="invalid-feedback">
-                  Email is invalid
+                <div class="alert alert-danger"
+                    *ngIf="userEmail.errors?.pattern && userEmail.touched">
+                    Email is invalid
                 </div>
     </div>
     <div class="form-group">
         <label>Phone</label>
         <input  type="text" 
                 class="form-control" 
-                [ngClass]="{'is-invalid':userPhone.errors?.required && userPhone.touched || userPhone.errors?.minlength || userPhone.errors?.pattern}"
+                [ngClass]="{'is-invalid':userPhone.errors?.required && userPhone.touched || userPhone.errors?.minlength}"
                 [(ngModel)]="user.phone" 
                 #userPhone="ngModel"
                 name="phone"
                 minlength='10'
                 maxlength='16'
-                pattern= '/^([()\- x+]*\d[()\- x+]*){10,16}$/'
                 required>
-        <div *ngIf="userPhone.errors?.required && userPhone.touched" class="invalid-feedback">
-            Phone is required
+        <div class="alert alert-danger" 
+            *ngIf="userPhone.errors?.required && userPhone.touched">
+             Phone is required
           </div>
-          <div *ngIf="userPhone.errors?.pattern && userPhone.errors?.minlength && userPhone.touched" class="invalid-feedback">
-            Phone is not a valid number
+          <div class="alert alert-danger"
+              *ngIf="userPhone.touched && userPhone.errors?.minlength">
+              Phone is not a valid number
           </div>
       </div>
     <input  type="submit" 
