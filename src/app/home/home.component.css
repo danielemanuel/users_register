@@ -37,12 +37,6 @@
     }
   }
   
-  .navbar {  
-    animation: 1s ease-out 0s 1 slideInFromLeft;
-    background: red;
-    padding: 30px;
-  }
-  
   @keyframes fadein {
     from {
         opacity:0;
@@ -74,20 +68,6 @@
     to {
         opacity: 1;
     }
-  }
-  
-  .other {
-    position: fixed; 
-    min-width: 100%;
-    min-height: 100%;
-    background: red;
-    margin-top: 25px;
-    font-size: 21px;
-    text-align: center;
-    animation: fadein 2s;
-    -moz-animation: fadein 2s; 
-    -webkit-animation: fadein 2s; 
-    -o-animation: fadein 2s; 
   }
   
   @keyframes fadein {
