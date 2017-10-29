@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class UsersComponent {
+  title="Add Users"
   users:any[];
   user = {
       id:'',
@@ -40,11 +41,16 @@ export class UsersComponent {
             this.dataService.addUser(this.user).subscribe(user => {
               console.log(user);
               this.users.unshift(user);
+              this.flashMessagesService.show('New user added to register', {
+                cssClass: 'alert-success',
+                timeout: 4000
+              });
+              this.router.navigate(['users'])
               this.user = {
-                  id:'',
-                  name:'',
-                  email:'',
-                  phone:''
+                id:'',
+                name:'',
+                email:'',
+                phone:''
               }
           });
         }     

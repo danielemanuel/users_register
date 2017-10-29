@@ -15,13 +15,13 @@
 
   .link {
     margin-left: 40%;
-    
   }
   
   .link:hover {
     color: grey;
     font-size: 150%;
   }
+
   .welcomeMessage {
     padding-top: 20%;
   }
@@ -89,6 +89,7 @@
     -webkit-animation: fadein 2s; 
     -o-animation: fadein 2s; 
   }
+  
   @keyframes fadein {
     from {
         opacity:0;
