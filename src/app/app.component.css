@@ -1,0 +1,15 @@
+.navbar {
+    background-color: grey;
+    height: 70px;
+    font-style: oblique;
+    font-family:Courier, Monaco, monospace;
+    font-size: 30px;
+}
+
+.links {
+   padding-right: 60px; 
+}
+
+.home {
+    padding-right: 30px;
+}
