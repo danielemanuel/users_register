@@ -1,4 +1,4 @@
-### User Register
+#### Users Register
 
 #### Getting started
 
@@ -12,7 +12,7 @@
 ### App description
 
 - This app is build with Angular  
-- I am using an JSON API from which I fetch the data from ('https://jsonplaceholder.typicode.com/users')
+- I am using an JSON API from which I fetch the data ('https://jsonplaceholder.typicode.com/users')
 - Angular Router is implemented to navigate between different pages of the app
 - User has the possibility to post data back to the API
 - I implemented a search functionality using the pipe concept.User has the possibility to search the person desired from a wide range of names
