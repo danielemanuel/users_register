@@ -20,10 +20,22 @@ export class UsersComponent implements OnInit {
   constructor(public dataService:DataService)
   {
       this.dataService.getUsers().subscribe(users => {
-        console.log(users)
         this.users = users;
       });
   }      
+
+  onSubmit(){
+      this.dataService.addUser(this.user).subscribe(user => {
+          console.log(user);
+          this.users.unshift(user);
+          this.user = {
+              id:'',
+              name:'',
+              email:'',
+              phone:''
+          }
+      });
+  }  
 
   ngOnInit() {
       
