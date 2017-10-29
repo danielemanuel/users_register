@@ -1,42 +1,82 @@
+<h1>Hello World</h1>
+<flash-messages></flash-messages>
 <form   
-    novalidate #f="ngForm"
-    (ngSubmit)="onSubmit(f)"
-    >
+        novalidate #f="ngForm"
+        (ngSubmit)="onSubmit(f)"
+        >
     <div class="form-group">
-    <label for='name' >Name</label>
-    <input  type="text"                   
-            class="form-control" 
-            [(ngModel)]="user.name" 
-            #userName="ngModel"
-            name="name"
-            
-    >
+        <label for='name' >Name</label>
+        <input  type="text"                   
+                class="form-control" 
+                [(ngModel)]="user.name" 
+                #userName="ngModel"
+                name="name"
+                minlength="2"
+                required
+        >
+        <div class="alert alert-danger"
+           *ngIf="userName.invalid && (userName.dirty || userName.touched || userName.errors.minlength)">
+             Name is Required
+             </div>
+        <div class="alert alert-danger"
+        *ngIf="userName.errors?.minlength && userName.touched">
+        Name should be at least 2 characters
+        </div>
     </div>
     <div class="form-group">
-    <label>Email</label>
-    <input  type="text"
-            class="form-control" 
-            [(ngModel)]="user.email" 
-            #userEmail="ngModel"                        
-            name="email"
-            
-            >
+        <label>Email</label>
+        <input  type="text" 
+                [ngClass]="{'is-invalid':userEmail.errors?.required && userEmail.touched || userEmail.errors?.pattern}"
+                class="form-control" 
+                [(ngModel)]="user.email" 
+                #userEmail="ngModel"                        
+                name="email"
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                required>
+                <div *ngIf="userEmail.errors?.required && userEmail.touched" class="invalid-feedback">
+                  Email is required
+                </div>
+                <div *ngIf="userEmail.errors?.pattern && userEmail.touched" class="invalid-feedback">
+                  Email is invalid
+                </div>
     </div>
     <div class="form-group">
-    <label>Phone</label>
-    <input  type="text" 
-            class="form-control" 
-            [(ngModel)]="user.phone" 
-            #userPhone="ngModel"
-            name="phone"
-            >
-    </div>
+        <label>Phone</label>
+        <input  type="text" 
+                class="form-control" 
+                [ngClass]="{'is-invalid':userPhone.errors?.required && userPhone.touched || userPhone.errors?.minlength || userPhone.errors?.pattern}"
+                [(ngModel)]="user.phone" 
+                #userPhone="ngModel"
+                name="phone"
+                minlength='10'
+                maxlength='16'
+                pattern= '/^([()\- x+]*\d[()\- x+]*){10,16}$/'
+                required>
+        <div *ngIf="userPhone.errors?.required && userPhone.touched" class="invalid-feedback">
+            Phone is required
+          </div>
+          <div *ngIf="userPhone.errors?.pattern && userPhone.errors?.minlength && userPhone.touched" class="invalid-feedback">
+            Phone is not a valid number
+          </div>
+      </div>
     <input  type="submit" 
-        class="btn btn-success" 
-        value="Submit">
+            class="btn btn-success" 
+            value="Submit">
 </form>
 <hr>
-<div *ngFor="let user of users ">
+<div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">            
+          <input class="dropdown-item"  type="text" [(ngModel)]="queryString" id="search" placeholder="Name,email or phone">
+        </div>
+      </div>
+<br>
+<hr>
+<div *ngFor="let user of users">
+    
         <div class="well">
             <ul class="list-group">
                 <li class="list-group-item">Name: {{ user.name }}</li>
@@ -44,5 +84,8 @@
                 <li class="list-group-item">Phone: {{ user.phone }}</li>
             </ul>
             <br>
+            <button class="btn btn-primary btn-sm" (click)="onEditClick(user)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="onDeleteClick(user.id)">Delete</button>
+            <br><br>
         </div>
     </div>

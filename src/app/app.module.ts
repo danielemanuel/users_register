@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { DataService } from './services/data.service';
+import  { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -25,6 +26,8 @@ const routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    FlashMessagesModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)    
   ],
   providers: [DataService],
