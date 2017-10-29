@@ -16,6 +16,7 @@
                 #userName="ngModel"
                 name="name"
                 minlength="2"
+                placeholder= "Enter name"
                 required
         >
         <div class="alert alert-danger"
@@ -32,6 +33,7 @@
                 [(ngModel)]="user.email" 
                 #userEmail="ngModel"                        
                 name="email"
+                placeholder= "Enter email"
                 pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                 required>
                 <div class="alert alert-danger"
@@ -49,6 +51,7 @@
                 name="phone"
                 minlength='10'
                 maxlength='16'
+                placeholder= "Enter phone number"
                 required>
           <div class="alert alert-danger"
               *ngIf=" userPhone.errors?.minlength">

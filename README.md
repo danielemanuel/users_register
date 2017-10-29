@@ -1,31 +1,80 @@
-# UsersRegister
+### User Register
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+#### Getting started
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+- clone  the repo/ download zip file
+- cd into directory
+- npm install
+- npm start
+```
 
-## Code scaffolding
+### App description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+- This app is build with Angular  
+- I am using an JSON API from which I fetch the data from ('https://jsonplaceholder.typicode.com/users')
+- Angular Router is implemented to navigate between different pages of the app
+- User has the possibility to post data back to the API
+- I implemented a search functionality using the pipe concept.User has the possibility to search the person desired from a wide range of names
+- Form validation using Angular Flash Messages service
+- For styling I used bootstrap and css
 
-## Build
+### Steps
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+##### Wireframe
 
-## Running unit tests
+  ![wireframe](/images/wireframe.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+##### 1.
+- Implement the home and users components
+- Implement routing between the pages
+- Style the Home component
 
-## Running end-to-end tests
+  ![home](/images/home.png)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+#### 2.
+- Implement the form in users component
 
-## Deploying to GitHub Pages
+  ![form](/images/form.png)
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+#### 3.
+- Fetch the data from the JSON API
+- We have GOLD here ;)
 
-## Further help
+  ![fetch_data](/images/fetch_users_console.png)
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Post the data back to the JSON API
+
+  ![post_data](/images/post_users_console.png)
+
+  #### 4.
+- Let's add some form validation, is gonna be like magic :D :D. Angular FlashMessages Service is awesome
+
+![errors](/images/errors.png)
+
+- If user is added to the JSON API you get a confirmation message
+
+![confirm](/images/confirm.png)
+
+- Looks great !! I told you !
+
+#### 5.
+- Search functionality
+- User can found anyone now, very fast by: name, email or phone
+- Another magic feature :D
+
+![search](/images/search.png)
+
+#### 6.
+- Have more fun styling the app , funniest part ever
+
+![final](/images/final.png)
+
+- Looks amazing! Good job ! :D :D
+
+### Feature implementations:
+
+- add a user authentication system, the persons details can be seen by all users but only a registered user can add another person
+- implement more animations
+- all of these components will have their own route, when the user adds a person is gonna be automatically redirected to the list of persons page
+- a very great UI interface
